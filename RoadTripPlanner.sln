@@ -1,0 +1,39 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.809.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadTripPlanner", "src\RoadTripPlanner\RoadTripPlanner.csproj", "{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{460B3D03-6601-4452-8381-5E25D4A891DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{63799E51-1C31-4005-A105-C2155F54A06B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadTripPlanner.UnitTests", "tests\RoadTripPlanner.UnitTests\RoadTripPlanner.UnitTests.csproj", "{CB3DCF55-DA25-4216-8743-81762BEB231E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3DCF55-DA25-4216-8743-81762BEB231E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3DCF55-DA25-4216-8743-81762BEB231E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3DCF55-DA25-4216-8743-81762BEB231E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3DCF55-DA25-4216-8743-81762BEB231E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3AF4A6D-06F2-4304-B57C-36A7B5201B84}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B5971C0C-DAB7-4A82-9C3C-3044ACD4F542} = {460B3D03-6601-4452-8381-5E25D4A891DE}
+		{CB3DCF55-DA25-4216-8743-81762BEB231E} = {63799E51-1C31-4005-A105-C2155F54A06B}
+	EndGlobalSection
+EndGlobal
