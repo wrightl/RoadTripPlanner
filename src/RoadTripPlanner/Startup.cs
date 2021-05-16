@@ -11,9 +11,16 @@ using RoadTripPlanner.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using RoadTripPlanner.Application.Interfaces;
+using RoadTripPlanner.Application.Services;
+using RoadTripPlanner.Core.Repositories;
+using RoadTripPlanner.Infrastructure.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace RoadTripPlanner
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,6 +33,11 @@ namespace RoadTripPlanner
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // DI
+            services.AddTransient<ITripsService, TripsService>();
+            services.AddTransient<ITripsRepository, TripsRepository>();
+
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -46,6 +58,22 @@ namespace RoadTripPlanner
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "RoadTrip Planner",
+                    Version = "v1",
+                    Description = "RoadTrip Planner app",
+                    Contact = new OpenApiContact
+                    {
+                        Email = "leewright76@hotmail.com",
+                        Name = "Lee Wright"
+                    }
+                }
+                );
             });
         }
 
@@ -71,6 +99,13 @@ namespace RoadTripPlanner
                 app.UseSpaStaticFiles();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RoadTrip Planner API V1");
+                c.RoutePrefix = "api";
+            });
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -78,9 +113,10 @@ namespace RoadTripPlanner
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+                // endpoints.MapControllerRoute(
+                // 	name: "default",
+                // 	pattern: "api/{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
 
