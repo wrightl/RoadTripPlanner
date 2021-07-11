@@ -4,9 +4,11 @@ using RoadTripPlanner.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Diagnostics.CodeAnalysis;
 
 namespace RoadTripPlanner.Data.Migrations
 {
+    [ExcludeFromCodeCoverage]
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {

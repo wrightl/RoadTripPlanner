@@ -10,9 +10,11 @@
 
 Run `dotnet watch --project ./tests/RoadTripPlanner.UnitTests test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info`
 
-## Code Coverage
+Use 'Watch' option in statusbar to view code coverage in VS Code
 
-Make sure guid is right and run `reportgenerator "-reports:tests/RoadTripPlanner.UnitTests/TestResults/4f2de660-7c02-4eda-a0a6-4f6cfeb10673/coverage.cobertura.xml" "-targetdir:coveragereport" -reporttypes:Html`
+<!-- ## Code Coverage
+
+Make sure guid is right and run `reportgenerator "-reports:tests/RoadTripPlanner.UnitTests/TestResults/4f2de660-7c02-4eda-a0a6-4f6cfeb10673/coverage.cobertura.xml" "-targetdir:coveragereport" -reporttypes:Html` -->
 
 ## To run the services
 

@@ -48,7 +48,17 @@ namespace RoadTripPlanner
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options =>
+                {
+                    // options.Clients.AddSPA(
+                    //     "My SPA", spa =>
+                    //         spa.WithRedirectUri("http://www.example.com/authentication/login-callback")
+                    //         .WithLogoutRedirectUri(
+                    //             "http://www.example.com/authentication/logout-callback"));
+
+                    // options.ApiResources.AddApiResource("MyExternalApi", resource =>
+                    //     resource.WithScopes("a", "b", "c"));
+                });
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
